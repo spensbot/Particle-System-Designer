@@ -1,6 +1,7 @@
 require 'simple-slider'
 require 'colorPalette'
 require 'textureButton'
+require 'tSerial'
 
 --GUI Params
 WINDOW_WIDTH = 1400
@@ -16,7 +17,7 @@ PALETTE_IMAGE_PATH = 'palette_160.png'
 
 --System Params
 MAX_PARTICLES = 20000
-TEXTURE_DIRECTORY = 'images/'
+TEXTURE_DIRECTORY = 'textures/'
 TEXTURE_IMAGE_FORMAT = '.png'
 
 --Other Global Params
@@ -25,7 +26,6 @@ WHITE = {1,1,1,1}
 
 
 function love.load()
-
     --Setup the window
     love.window.setTitle('Particle Effect Generator')
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {resizable=true, vsync=true, minwidth=400, minheight=300})
@@ -61,7 +61,7 @@ function love.load()
     setSliderXY()
 
     --Setup the particle system and texture buttons
-    texture = love.graphics.newImage('images/smoke.png')
+    texture = love.graphics.newImage('textures/cloud.png')
     pSystem = love.graphics.newParticleSystem(texture, MAX_PARTICLES)
     textureButtons = {}
     populateTextureButtons()
@@ -91,7 +91,6 @@ end
 
 
 function love.update(dt)
-
     --Update global mouse status variables
     mouseDown = love.mouse.isDown(1)
     mouseX, mouseY = love.mouse.getPosition()
@@ -121,7 +120,6 @@ function love.update(dt)
     end
     pSystem:setSizes(startSize, midSize, endSize)
     pSystem:update(dt)
-    
 end
 
 function love.draw()

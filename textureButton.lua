@@ -3,7 +3,7 @@ TextureButton.__index = TextureButton
 
 function newTextureButton(imageName)
     local tb = {}
-    tb.imageName = imageName
+    tb.imageName = imageName:sub(1, #imageName - 4)
     tb.textureImage = love.graphics.newImage(TEXTURE_DIRECTORY..imageName)
     tb.x = 0
     tb.y = 0
