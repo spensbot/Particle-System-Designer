@@ -1,7 +1,6 @@
 require 'simple-slider'
 require 'colorPalette'
 require 'textureButton'
-require 'tSerial'
 
 --GUI Params
 WINDOW_WIDTH = 1400
