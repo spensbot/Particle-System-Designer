@@ -3,8 +3,10 @@ require 'colorPalette'
 require 'textureButton'
 
 --GUI Params
-WINDOW_WIDTH = 1400
-WINDOW_HEIGHT = 1000
+WINDOW_WIDTH = 1280
+WINDOW_HEIGHT = 720
+WINDOW_WIDTH = 1920
+WINDOW_HEIGHT = 1080
 PADDING = 20
 PADDING2 = 5
 SLIDER_LENGTH = 150
@@ -27,7 +29,7 @@ WHITE = {1,1,1,1}
 function love.load()
     --Setup the window
     love.window.setTitle('Particle Effect Generator')
-    love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {resizable=true, vsync=true, minwidth=400, minheight=300})
+    love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {resizable=false, vsync=true, minwidth=400, minheight=300})
 
     --Setup effect sliders
     sliderStyle = {
@@ -158,6 +160,11 @@ function love.draw()
     infoPrint()
 end
 
+function love.keypressed(key)
+    if key == 'escape' then 
+        love.event.quit()
+    end
+end
 
 --   *********** HELPER FUNCTIONS BELOW ***********
 
